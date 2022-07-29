@@ -1,5 +1,7 @@
 package com.ota.tour.config;
 
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.ota.tour.converter.datetime.DateToZoneDateTime;
@@ -34,8 +36,13 @@ public class MongodbConfiguration extends AbstractMongoClientConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        return MongoClients.create(mongoClientSettings());
+        final ConnectionString connectionString = new ConnectionString("mongodb://" + env.getProperty("spring.data.mongodb.host") + ":" + env.getProperty("spring.data.mongodb.port") + "/" + env.getProperty("spring.data.mongodb.database"));
+        final MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
+                .applyConnectionString(connectionString)
+                .build();
+        return MongoClients.create(mongoClientSettings);
     }
+
 
     @Bean
     @Override
