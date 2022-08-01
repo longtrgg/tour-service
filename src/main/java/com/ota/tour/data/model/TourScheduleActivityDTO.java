@@ -8,8 +8,10 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class TourScheduleDTO extends TourBaseDTO implements Serializable {
+public class TourScheduleActivityDTO extends TourBaseDTO implements Serializable {
     private List<Translation> name;
     private List<Translation> description;
-    private Long activityId;
+    private List<Translation> note;
+    private String startAt;
+    private Long scheduleId;
 }

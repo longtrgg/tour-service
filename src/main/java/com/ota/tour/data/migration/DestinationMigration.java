@@ -23,7 +23,7 @@ public class DestinationMigration {
         ObjectMapper mapper = new ObjectMapper();
         TypeReference<List<DestinationDocument>> typeReference = new TypeReference<List<DestinationDocument>>() {
         };
-        InputStream inputStream = jdk.internal.org.objectweb.asm.TypeReference.class.getResourceAsStream("/data/destination.json");
+        InputStream inputStream = TypeReference.class.getResourceAsStream("/data/destination.json");
         try {
             List<DestinationDocument> destinationDocuments = mapper.readValue(inputStream, typeReference);
             for (DestinationDocument destinationDocument : destinationDocuments) {
