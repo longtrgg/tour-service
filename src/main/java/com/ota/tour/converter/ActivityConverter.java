@@ -1,14 +1,11 @@
 package com.ota.tour.converter;
 
 import com.ota.tour.data.document.ActivityDocument;
-import com.ota.tour.data.model.ManagementPageResult;
 import com.ota.tour.data.model.TourActivityDTO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
-import java.util.Objects;
-import java.util.stream.Collectors;
+import java.time.format.DateTimeFormatter;
 
 @Component
 @RequiredArgsConstructor
@@ -71,17 +68,18 @@ public class ActivityConverter {
         if (activityDocument.getStatus() != null) {
             tourActivityDTO.setStatus(activityDocument.getStatus());
         }
-        return tourActivityDTO;
-    }
-
-    public ManagementPageResult<TourActivityDTO> toActivityPageResult(Page<ActivityDocument> activityDocumentPage) {
-        if (activityDocumentPage == null) {
-            return null;
+        if (activityDocument.getCreatedBy() != null) {
+            tourActivityDTO.setCreatedBy(activityDocument.getCreatedBy());
         }
-        ManagementPageResult<TourActivityDTO> activityManagementPageResult = new ManagementPageResult();
-        activityManagementPageResult.setPageResult(commonConverter.toPageResult(activityDocumentPage.getSize(), activityDocumentPage.getNumber(), activityDocumentPage.getTotalPages(), activityDocumentPage.getTotalElements()));
-        activityManagementPageResult.setResult(activityDocumentPage.getContent()
-                .stream().map(this::toActivityResult).filter(Objects::nonNull).collect(Collectors.toList()));
-        return activityManagementPageResult;
+        if (activityDocument.getCreatedDate() != null) {
+            tourActivityDTO.setCreatedDate(activityDocument.getCreatedDate().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        }
+        if (activityDocument.getLastModifiedBy() != null) {
+            tourActivityDTO.setLastModifiedBy(activityDocument.getLastModifiedBy());
+        }
+        if (activityDocument.getLastModifiedDate() != null) {
+            tourActivityDTO.setLastModifiedDate(activityDocument.getLastModifiedDate().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        }
+        return tourActivityDTO;
     }
 }

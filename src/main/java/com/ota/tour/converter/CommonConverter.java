@@ -1,7 +1,11 @@
 package com.ota.tour.converter;
 
+import com.ota.tour.data.model.ManagementPageResult;
 import com.ota.tour.data.model.PageResult;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class CommonConverter {
@@ -22,6 +26,22 @@ public class CommonConverter {
         managementPageResult.setPageSize(pageSize);
         managementPageResult.setTotalPage(totalPage);
         managementPageResult.setTotalItems(totalItems);
+        return managementPageResult;
+    }
+
+    public <T, S> ManagementPageResult<T> toPageResult(Page<S> documentPage, List<T> resultList) {
+        if (documentPage == null) {
+            return null;
+        }
+        ManagementPageResult<T> managementPageResult = new ManagementPageResult();
+        managementPageResult.setPageResult(toPageResult(documentPage.getSize(), documentPage.getNumber(), documentPage.getTotalPages(), documentPage.getTotalElements()));
+        managementPageResult.setResult(resultList);
+        return managementPageResult;
+    }
+
+    public <T> ManagementPageResult<T> toPageResult(List<T> resultList) {
+        ManagementPageResult<T> managementPageResult = new ManagementPageResult();
+        managementPageResult.setResult(resultList);
         return managementPageResult;
     }
 }

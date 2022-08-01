@@ -6,7 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ActivityRepository extends MongoRepository<ActivityDocument, Long> {
-
-//    Page<TourDocument> findBy(Long supplierId, Pageable pageable);
-
 }
