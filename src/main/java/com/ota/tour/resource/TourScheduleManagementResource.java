@@ -24,7 +24,7 @@ public class TourScheduleManagementResource {
     private final ScheduleConverter scheduleConverter;
     private final CommonConverter commonConverter;
 
-    @ApiOperation(value = "getScheduleUsingGET")
+    @ApiOperation(value = "getScheduleByActivityIdUsingGET")
     @GetMapping()
     public ResponseEntity<ManagementPageResult<TourScheduleDTO>> getScheduleByActivityId(
             @RequestParam() Long activityId) {

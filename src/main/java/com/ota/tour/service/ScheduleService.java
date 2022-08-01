@@ -10,6 +10,6 @@ public interface ScheduleService {
 
     List<ScheduleDocument> getScheduleByActivityId(Long activityId);
 
-    void deleteSchedule(Long activityId);
+    void deleteSchedule(Long scheduleId);
 
 }
