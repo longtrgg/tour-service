@@ -2,7 +2,7 @@ package com.ota.tour.resource;
 
 import com.ota.tour.converter.ActivityConverter;
 import com.ota.tour.data.document.ActivityDocument;
-import com.ota.tour.data.model.ActivityManagementPageResult;
+import com.ota.tour.data.model.ManagementPageResult;
 import com.ota.tour.data.model.TourActivityDTO;
 import com.ota.tour.service.ActivityService;
 import io.swagger.annotations.ApiOperation;
@@ -23,22 +23,23 @@ public class TourActivityManagementResource {
 
     @ApiOperation(value = "getActivityUsingGET")
     @GetMapping()
-    public ResponseEntity<ActivityManagementPageResult> getActivities(
+    public ResponseEntity<ManagementPageResult<TourActivityDTO>> getActivities(
             @RequestParam(required = false) Long activityId,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<ActivityDocument> activityDocumentPage = activityService.getActivity(activityId, pageable);
-        ActivityManagementPageResult pageResult = activityConverter.toActivityPageResult(activityDocumentPage);
+        ManagementPageResult<TourActivityDTO> pageResult = activityConverter.toActivityPageResult(activityDocumentPage);
         return new ResponseEntity<>(pageResult, HttpStatus.OK);
     }
 
     @ApiOperation(value = "createOrUpdateActivityUsingPOST")
     @PostMapping()
-    public ResponseEntity<ActivityDocument> createOrUpdateActivity(@RequestBody TourActivityDTO activityDTO) {
+    public ResponseEntity<TourActivityDTO> createOrUpdateActivity(@RequestBody TourActivityDTO activityDTO) {
         ActivityDocument activityDocument = activityConverter.toActivityDocument(activityDTO);
         activityDocument = activityService.saveOrUpdate(activityDocument);
-        return new ResponseEntity<>(activityDocument, HttpStatus.CREATED);
+        TourActivityDTO tourActivityDTO = activityConverter.toActivityResult(activityDocument);
+        return new ResponseEntity<>(tourActivityDTO, HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "deleteActivityUsingDELTE")

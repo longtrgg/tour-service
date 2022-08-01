@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ActivityManagementPageResult {
+public class ManagementPageResult<T> {
     PageResult pageResult;
-    List<TourActivityDTO> result;
+    List<T> result;
 }

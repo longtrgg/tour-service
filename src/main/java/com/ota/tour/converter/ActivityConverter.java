@@ -1,7 +1,7 @@
 package com.ota.tour.converter;
 
 import com.ota.tour.data.document.ActivityDocument;
-import com.ota.tour.data.model.ActivityManagementPageResult;
+import com.ota.tour.data.model.ManagementPageResult;
 import com.ota.tour.data.model.TourActivityDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -74,11 +74,11 @@ public class ActivityConverter {
         return tourActivityDTO;
     }
 
-    public ActivityManagementPageResult toActivityPageResult(Page<ActivityDocument> activityDocumentPage) {
+    public ManagementPageResult<TourActivityDTO> toActivityPageResult(Page<ActivityDocument> activityDocumentPage) {
         if (activityDocumentPage == null) {
             return null;
         }
-        ActivityManagementPageResult activityManagementPageResult = new ActivityManagementPageResult();
+        ManagementPageResult<TourActivityDTO> activityManagementPageResult = new ManagementPageResult();
         activityManagementPageResult.setPageResult(commonConverter.toPageResult(activityDocumentPage.getSize(), activityDocumentPage.getNumber(), activityDocumentPage.getTotalPages(), activityDocumentPage.getTotalElements()));
         activityManagementPageResult.setResult(activityDocumentPage.getContent()
                 .stream().map(this::toActivityResult).filter(Objects::nonNull).collect(Collectors.toList()));
