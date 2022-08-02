@@ -1,0 +1,317 @@
+[
+  {
+    "name": "Lào Cai",
+    "slug": "lao-cai",
+    "fullName": "Lào Cai"
+  },
+  {
+    "name": "Điện Biên",
+    "slug": "dien-bien",
+    "fullName": "Điện Biên"
+  },
+  {
+    "name": "Lai Châu",
+    "slug": "lai-chau",
+    "fullName": "Lai Châu"
+  },
+  {
+    "name": "Sơn La",
+    "slug": "son-la",
+    "fullName": "Sơn La"
+  },
+  {
+    "name": "Yên Bái",
+    "slug": "yen-bai",
+    "fullName": "Yên Bái"
+  },
+  {
+    "name": "Hoà Bình",
+    "slug": "hoa-binh",
+    "fullName": "Hoà Bình"
+  },
+  {
+    "name": "Thái Nguyên",
+    "slug": "thai-nguyen",
+    "fullName": "Thái Nguyên"
+  },
+  {
+    "name": "Lạng Sơn",
+    "slug": "lang-son",
+    "fullName": "Lạng Sơn"
+  },
+  {
+    "name": "Quảng Ninh",
+    "slug": "quang-ninh",
+    "fullName": "Quảng Ninh"
+  },
+  {
+    "name": "Bắc Giang",
+    "slug": "bac-giang",
+    "fullName": "Bắc Giang"
+  },
+  {
+    "name": "Phú Thọ",
+    "slug": "phu-tho",
+    "fullName": "Phú Thọ"
+  },
+  {
+    "name": "Vĩnh Phúc",
+    "slug": "vinh-phuc",
+    "fullName": "Vĩnh Phúc"
+  },
+  {
+    "name": "Bắc Ninh",
+    "slug": "bac-ninh",
+    "fullName": "Bắc Ninh"
+  },
+  {
+    "name": "Hải Dương",
+    "slug": "hai-duong",
+    "fullName": "Hải Dương"
+  },
+  {
+    "name": "Hải Phòng",
+    "slug": "hai-phong",
+    "fullName": "Thành phố Hải Phòng"
+  },
+  {
+    "name": "Hưng Yên",
+    "slug": "hung-yen",
+    "fullName": "Hưng Yên"
+  },
+  {
+    "name": "Thái Bình",
+    "slug": "thai-binh",
+    "fullName": "Thái Bình"
+  },
+  {
+    "name": "Hà Nam",
+    "slug": "ha-nam",
+    "fullName": "Hà Nam"
+  },
+  {
+    "name": "Nam Định",
+    "slug": "nam-dinh",
+    "fullName": "Nam Định"
+  },
+  {
+    "name": "Ninh Bình",
+    "slug": "ninh-binh",
+    "fullName": "Ninh Bình"
+  },
+  {
+    "name": "Thanh Hóa",
+    "slug": "thanh-hoa",
+    "fullName": "Thanh Hóa"
+  },
+  {
+    "name": "Nghệ An",
+    "slug": "nghe-an",
+    "fullName": "Nghệ An"
+  },
+  {
+    "name": "Hà Tĩnh",
+    "slug": "ha-tinh",
+    "fullName": "Hà Tĩnh"
+  },
+  {
+    "name": "Quảng Bình",
+    "slug": "quang-binh",
+    "fullName": "Quảng Bình"
+  },
+  {
+    "name": "Quảng Trị",
+    "slug": "quang-tri",
+    "fullName": "Quảng Trị"
+  },
+  {
+    "name": "Thừa Thiên Huế",
+    "slug": "thua-thien-hue",
+    "fullName": "Thừa Thiên Huế"
+  },
+  {
+    "name": "Đà Nẵng",
+    "slug": "da-nang",
+    "fullName": "Thành phố Đà Nẵng"
+  },
+  {
+    "name": "Quảng Nam",
+    "slug": "quang-nam",
+    "fullName": "Quảng Nam"
+  },
+  {
+    "name": "Quảng Ngãi",
+    "slug": "quang-ngai",
+    "fullName": "Quảng Ngãi"
+  },
+  {
+    "name": "Bình Định",
+    "slug": "binh-dinh",
+    "fullName": "Bình Định"
+  },
+  {
+    "name": "Phú Yên",
+    "slug": "phu-yen",
+    "fullName": "Phú Yên"
+  },
+  {
+    "name": "Khánh Hòa",
+    "slug": "khanh-hoa",
+    "fullName": "Khánh Hòa"
+  },
+  {
+    "name": "Ninh Thuận",
+    "slug": "ninh-thuan",
+    "fullName": "Ninh Thuận"
+  },
+  {
+    "name": "Bình Thuận",
+    "slug": "binh-thuan",
+    "fullName": "Bình Thuận"
+  },
+  {
+    "name": "Kon Tum",
+    "slug": "kon-tum",
+    "fullName": "Kon Tum"
+  },
+  {
+    "name": "Gia Lai",
+    "slug": "gia-lai",
+    "fullName": "Gia Lai"
+  },
+  {
+    "name": "Đắk Lắk",
+    "slug": "dak-lak",
+    "fullName": "Đắk Lắk"
+  },
+  {
+    "name": "Đắk Nông",
+    "slug": "dak-nong",
+    "fullName": "Đắk Nông"
+  },
+  {
+    "name": "Lâm Đồng",
+    "slug": "lam-dong",
+    "fullName": "Lâm Đồng"
+  },
+  {
+    "name": "Bình Phước",
+    "slug": "binh-phuoc",
+    "fullName": "Bình Phước"
+  },
+  {
+    "name": "Tây Ninh",
+    "slug": "tay-ninh",
+    "fullName": "Tây Ninh"
+  },
+  {
+    "name": "Bình Dương",
+    "slug": "binh-duong",
+    "fullName": "Bình Dương"
+  },
+  {
+    "name": "Đồng Nai",
+    "slug": "dong-nai",
+    "fullName": "Đồng Nai"
+  },
+  {
+    "name": "Bà Rịa - Vũng Tàu",
+    "slug": "ba-ria-vung-tau",
+    "fullName": "Bà Rịa - Vũng Tàu"
+  },
+  {
+    "name": "Hồ Chí Minh",
+    "slug": "ho-chi-minh",
+    "fullName": "Thành phố Hồ Chí Minh"
+  },
+  {
+    "name": "Long An",
+    "slug": "long-an",
+    "fullName": "Long An"
+  },
+  {
+    "name": "Tiền Giang",
+    "slug": "tien-giang",
+    "fullName": "Tiền Giang"
+  },
+  {
+    "name": "Bến Tre",
+    "slug": "ben-tre",
+    "fullName": "Bến Tre"
+  },
+  {
+    "name": "Trà Vinh",
+    "slug": "tra-vinh",
+    "fullName": "Trà Vinh"
+  },
+  {
+    "name": "Vĩnh Long",
+    "slug": "vinh-long",
+    "fullName": "Vĩnh Long"
+  },
+  {
+    "name": "Đồng Tháp",
+    "slug": "dong-thap",
+    "fullName": "Đồng Tháp"
+  },
+  {
+    "name": "An Giang",
+    "slug": "an-giang",
+    "fullName": "An Giang"
+  },
+  {
+    "name": "Kiên Giang",
+    "slug": "kien-giang",
+    "fullName": "Kiên Giang"
+  },
+  {
+    "name": "Cần Thơ",
+    "slug": "can-tho",
+    "fullName": "Thành phố Cần Thơ"
+  },
+  {
+    "name": "Hậu Giang",
+    "slug": "hau-giang",
+    "fullName": "Hậu Giang"
+  },
+  {
+    "name": "Sóc Trăng",
+    "slug": "soc-trang",
+    "fullName": "Sóc Trăng"
+  },
+  {
+    "name": "Bạc Liêu",
+    "slug": "bac-lieu",
+    "fullName": "Bạc Liêu"
+  },
+  {
+    "name": "Cà Mau",
+    "slug": "ca-mau",
+    "fullName": "Cà Mau"
+  },
+  {
+    "name": "Hà Nội",
+    "slug": "ha-noi",
+    "fullName": "Thành phố Hà Nội"
+  },
+  {
+    "name": "Hà Giang",
+    "slug": "ha-giang",
+    "fullName": "Hà Giang"
+  },
+  {
+    "name": "Cao Bằng",
+    "slug": "cao-bang",
+    "fullName": "Cao Bằng"
+  },
+  {
+    "name": "Bắc Kạn",
+    "slug": "bac-kan",
+    "fullName": "Bắc Kạn"
+  },
+  {
+    "name": "Tuyên Quang",
+    "slug": "tuyen-quang",
+    "fullName": "Tuyên Quang"
+  }
+]
