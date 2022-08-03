@@ -39,24 +39,18 @@ public class ServiceServiceImpl implements ServiceService {
                     updated.setName(new ArrayList<>());
                 }
                 Helper.updateTranslation(serviceDocument.getName(), updated.getName());
-                if (updated.getTiming() == null) {
-                    updated.setTiming(updated.getTiming());
+                if (serviceDocument.getTiming() != null) {
+                    updated.setTiming(serviceDocument.getTiming());
                 }
-                if (updated.getRefundable() == null) {
-                    updated.setRefundable(updated.getRefundable());
+                if (serviceDocument.getInclusions() != null) {
+                    updated.setInclusions(serviceDocument.getInclusions());
                 }
-                if (updated.getHasInventory() == null) {
-                    updated.setHasInventory(updated.getHasInventory());
+                if (serviceDocument.getExclusions() != null) {
+                    updated.setExclusions(serviceDocument.getExclusions());
                 }
-                if (updated.getStatus() == null) {
-                    updated.setStatus(updated.getStatus());
-                }
-                if (updated.getInclusions() == null) {
-                    updated.setInclusions(updated.getInclusions());
-                }
-                if (updated.getExclusions() == null) {
-                    updated.setExclusions(updated.getExclusions());
-                }
+                updated.setHasInventory(serviceDocument.getHasInventory());
+                updated.setRefundable(serviceDocument.getRefundable());
+                updated.setStatus(serviceDocument.getStatus());
                 updated.setLastModifiedDate(now);
                 updated = serviceRepository.save(updated);
 
