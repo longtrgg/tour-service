@@ -1,9 +1,7 @@
 package com.ota.tour.converter;
 
 import com.ota.tour.data.document.ServicePriceDocument;
-import com.ota.tour.data.model.DateTimeRange;
-import com.ota.tour.data.model.TourServicePriceDTO;
-import com.ota.tour.data.model.ZoneDateTimeRange;
+import com.ota.tour.data.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +10,10 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static com.ota.tour.converter.CommonConverter.FORMAT_LOCAL_DATE;
 import static com.ota.tour.converter.CommonConverter.ZONE_ID_DEFAULT;
@@ -24,6 +26,7 @@ public class ServicePriceConverter {
     public ServicePriceDocument toServicePriceDocument(TourServicePriceDTO payload) {
         ServicePriceDocument servicePriceDocument = new ServicePriceDocument();
         servicePriceDocument.setId(payload.getId());
+        servicePriceDocument.setActivityId(payload.getActivityId());
         servicePriceDocument.setServiceId(payload.getServiceId());
         servicePriceDocument.setOccupancyId(payload.getOccupancyId());
         servicePriceDocument.setPrice(payload.getPrice());
@@ -43,6 +46,7 @@ public class ServicePriceConverter {
         TourServicePriceDTO tourServiceDTO = new TourServicePriceDTO();
         tourServiceDTO.setId(servicePriceDocument.getId());
         tourServiceDTO.setServiceId(servicePriceDocument.getServiceId());
+        tourServiceDTO.setActivityId(servicePriceDocument.getActivityId());
         tourServiceDTO.setOccupancyId(servicePriceDocument.getOccupancyId());
         if (servicePriceDocument.getPrice() != null) {
             tourServiceDTO.setPrice(servicePriceDocument.getPrice());
@@ -109,4 +113,64 @@ public class ServicePriceConverter {
         }
         return dateTimeRange;
     }
+
+    public ServicePriceResult toDatePriceResult(Map<Long, Map<String, List<ServicePrice>>> map) {
+        ServicePriceResult servicePriceResult = new ServicePriceResult();
+        servicePriceResult.setResult(toServicePriceByServiceId(map));
+        return servicePriceResult;
+    }
+
+    public List<ServicePriceByServiceId> toServicePriceByServiceId(Map<Long, Map<String, List<ServicePrice>>> map) {
+        if (map == null) {
+            return null;
+        }
+        return map.entrySet().stream().map(entry -> toPriceByServiceId(entry.getKey(), entry.getValue()))
+                .filter(Objects::nonNull).collect(Collectors.toList());
+    }
+
+    public ServicePriceByServiceId toPriceByServiceId(Long serviceId, Map<String, List<ServicePrice>> map) {
+        if (map == null) {
+            return null;
+        }
+        ServicePriceByServiceId datePrice = new ServicePriceByServiceId();
+        datePrice.setServiceId(serviceId);
+        datePrice.setDatePrices(map.entrySet().stream().map(entry -> toPriceByDate(entry.getKey(), entry.getValue()))
+                .filter(Objects::nonNull).collect(Collectors.toList()));
+        return datePrice;
+    }
+
+    public ServicePriceByDate toPriceByDate(String date, List<ServicePrice> prices) {
+        ServicePriceByDate priceByDate = new ServicePriceByDate();
+        priceByDate.setDate(date);
+        priceByDate.setPrice(prices.stream().map(this::toPrice)
+                .filter(Objects::nonNull).collect(Collectors.toList()));
+        return priceByDate;
+    }
+
+    public ServicePriceDetail toPrice(ServicePrice price) {
+        ServicePriceDetail servicePriceDetail = new ServicePriceDetail();
+        if (price == null) {
+            return null;
+        }
+        if (price.getOriginPrice() != null) {
+            servicePriceDetail.setOriginPrice(price.getOriginPrice());
+        }
+        if (price.getCurrency() != null) {
+            servicePriceDetail.setCurrency(price.getCurrency());
+        }
+        if (price.getPriceBeforePromo() != null) {
+            servicePriceDetail.setPriceBeforePromo(price.getPriceBeforePromo());
+        }
+        if (price.getPrice() != null) {
+            servicePriceDetail.setPrice(price.getPrice());
+        }
+        if (price.getOccupancyId() != null) {
+            servicePriceDetail.setOccupancyId(price.getOccupancyId());
+        }
+        if (price.getConvertRateToVND() != null) {
+            servicePriceDetail.setConvertRateToVND(price.getConvertRateToVND());
+        }
+        return servicePriceDetail;
+    }
+
 }

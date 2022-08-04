@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class ServicePriceResult {
-    private List<DatePrice> result;
+    private List<ServicePriceByServiceId> result;
 }

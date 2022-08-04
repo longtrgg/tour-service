@@ -2,11 +2,10 @@ package com.ota.tour.data.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ServicePriceByDate {
-    private Double originPrice;
-    private Double price;
-    private Currency currency;
-    private Double convertRateToVND;
-    private Double priceBeforePromo;
+    private String date;
+    private List<ServicePriceDetail> price;
 }

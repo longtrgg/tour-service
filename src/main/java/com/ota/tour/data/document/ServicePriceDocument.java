@@ -18,6 +18,7 @@ public class ServicePriceDocument extends SequenceBaseDocument {
     private static final long serialVersionUID = 1L;
 
     private Long serviceId;
+    private Long activityId;
     private Long occupancyId;
     private Double originPrice;
     private Double price;

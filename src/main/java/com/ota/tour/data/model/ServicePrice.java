@@ -1,15 +1,15 @@
 package com.ota.tour.data.model;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.time.DayOfWeek;
-import java.util.List;
+import java.time.ZonedDateTime;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class TourServicePriceDTO extends TourBaseDTO implements Serializable {
+public class ServicePrice implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private ZonedDateTime date;
     private Long serviceId;
     private Long occupancyId;
     private Long activityId;
@@ -17,7 +17,5 @@ public class TourServicePriceDTO extends TourBaseDTO implements Serializable {
     private Double price;
     private Currency currency;
     private Double convertRateToVND;
-    private DateTimeRange validity;
-    private List<DayOfWeek> validDaysOfWeek;
     private Double priceBeforePromo;
 }
