@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("api/tour/schedule/activity")
+@RequestMapping("api/tour/schedule-activity")
 @AllArgsConstructor
 public class TourScheduleActivityManagementResource {
     private final ScheduleActivityService scheduleActivityService;
