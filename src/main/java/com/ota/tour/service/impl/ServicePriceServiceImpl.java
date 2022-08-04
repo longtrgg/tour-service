@@ -34,7 +34,7 @@ public class ServicePriceServiceImpl implements ServicePriceService {
         Assert.notNull(servicePriceDocument, "tourServicePriceDocument must not be null");
         Assert.notNull(servicePriceDocument.getServiceId(), "tourServiceId must not be null");
         Assert.notNull(servicePriceDocument.getOccupancyId(), "tourOccupancyId must not be null");
-        Assert.notNull(servicePriceDocument.getOccupancyId(), "tourActivityId must not be null");
+        Assert.notNull(servicePriceDocument.getActivityId(), "tourActivityId must not be null");
         ZonedDateTime now = ZonedDateTime.now();
         servicePriceDocument.setLastModifiedDate(now);
         servicePriceDocument.setCreatedDate(now);
