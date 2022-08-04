@@ -25,13 +25,13 @@ public class DestinationServiceImpl implements DestinationService {
             Optional<DestinationDocument> updatedOpt = destinationRepository.findById(destinationDocument.getId());
             if (updatedOpt.isPresent()) {
                 DestinationDocument updated = updatedOpt.get();
-                if (destinationDocument.getName() != null) {
+                if (updated.getName() == null) {
                     updated.setName(destinationDocument.getName());
                 }
-                if (destinationDocument.getSlug() != null) {
+                if (updated.getSlug() == null) {
                     updated.setSlug(destinationDocument.getSlug());
                 }
-                if (destinationDocument.getFullName() != null) {
+                if (updated.getFullName() == null) {
                     updated.setFullName(destinationDocument.getFullName());
                 }
                 updated.setLastModifiedDate(now);
