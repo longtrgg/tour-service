@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class ServicePriceByDate {
     private String date;
-    private List<ServicePriceDetail> price;
+    private List<ServicePriceAvailable> price;
 }

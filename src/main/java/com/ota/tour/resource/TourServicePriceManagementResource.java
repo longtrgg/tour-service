@@ -44,9 +44,9 @@ public class TourServicePriceManagementResource {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "createOrUpdateServiceUsingPOST")
+    @ApiOperation(value = "createOrUpdateServicePriceUsingPOST")
     @PostMapping()
-    public ResponseEntity<TourServicePriceDTO> createOrUpdateService(@RequestBody TourServicePriceDTO servicePriceDTO) {
+    public ResponseEntity<TourServicePriceDTO> createOrUpdateServicePrice(@RequestBody TourServicePriceDTO servicePriceDTO) {
         ServicePriceDocument servicePriceDocument = servicePriceConverter.toServicePriceDocument(servicePriceDTO);
         servicePriceDocument = servicePriceService.saveOrUpdate(servicePriceDocument);
         TourServicePriceDTO tourServiceDTO = servicePriceConverter.toServicePriceResult(servicePriceDocument);

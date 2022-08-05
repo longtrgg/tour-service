@@ -147,8 +147,8 @@ public class ServicePriceConverter {
         return priceByDate;
     }
 
-    public ServicePriceDetail toPrice(ServicePrice price) {
-        ServicePriceDetail servicePriceDetail = new ServicePriceDetail();
+    public ServicePriceAvailable toPrice(ServicePrice price) {
+        ServicePriceAvailable servicePriceDetail = new ServicePriceAvailable();
         if (price == null) {
             return null;
         }
