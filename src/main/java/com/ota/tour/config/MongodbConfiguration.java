@@ -27,14 +27,13 @@ import java.util.Optional;
 @EnableMongoAuditing(dateTimeProviderRef = "auditingDateTimeProvider")
 public class MongodbConfiguration extends AbstractMongoClientConfiguration {
 
-    private static final String RDS_TRUSTSTORE_FILE_NAME = "rdstruststore.jks";
-
     private final Environment env;
     private final MongoProperties mongoProperties;
 
     @Override
     public MongoClient mongoClient() {
-        return MongoClients.create(mongoClientSettings());
+        String uri = mongoProperties.getUri();
+        return MongoClients.create(uri);
     }
 
     @Bean
